@@ -8,6 +8,7 @@ class Player : public QObject, public QGraphicsPixmapItem {
 public:
     Player();
     void keyPressEvent(QKeyEvent* event);
+    void keyReleaseEvent(QKeyEvent* event);
     void playBulletSound();
 };
 

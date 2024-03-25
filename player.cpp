@@ -7,24 +7,37 @@
 
 Player::Player() {
     setPixmap(QPixmap(":/images/img/player.png").scaled(100, 100));
+    setTransformOriginPoint(50, 50);
 }
 
 
 void Player::keyPressEvent(QKeyEvent* event) {
     // *******  Event Handling for the Player ********
     int offset = 10;
-    if(event->key()== Qt::Key_Left) {
-        if(x()>0) // to prevent the player from getting out of the screen
+    int rotAngle = 15;
+    if(event->key() == Qt::Key_Left) {
+        // to prevent the player from getting out of the screen
+        if(x()>0) {
             setPos(x()-offset,y());
+            setRotation(-rotAngle);
+        }
     } else if(event->key()== Qt::Key_Right) {
-        if(x() + 100 < 800) // to prevent the player from getting out of the screen
+        // to prevent the player from getting out of the screen
+        if(x() + 100 < 800) {
             setPos(x()+offset,y());
+            setRotation(rotAngle);
+        }
     } else if(event->key()== Qt::Key_Space) {
         Bullet* bullet = new Bullet();
-        bullet->setPos(x(),y());
+        bullet->setPos(x() + 26, y() - 13); // center the bullet relative to the spaceship
         playBulletSound();
         scene()->addItem(bullet);
     }
+}
+
+void Player::keyReleaseEvent(QKeyEvent* event) {
+    if(event->key())
+        setRotation(0);
 }
 
 void Player::playBulletSound() {
