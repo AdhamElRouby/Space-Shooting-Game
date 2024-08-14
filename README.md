@@ -2,6 +2,10 @@
 
 A clone of the well-known Chicken Invaders game, developed using C++ and the Qt Framework.
 
+<div align="center">
+ <img src="./img/demo.gif" alt="app demo">
+</div>
+
 ## Tech Stack
 
 - <img src="https://img.shields.io/badge/-C%2B%2B-00599C?logo=C%2B%2B&logoColor=white&style=flat" alt="C++">
