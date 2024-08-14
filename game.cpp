@@ -12,8 +12,10 @@ void Game::start() {
     // create a view
     setScene(scene);
     setFixedSize(800, 600);
+    // setWindowState(Qt::WindowFullScreen);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
 
     // add the player
     player = new Player();
